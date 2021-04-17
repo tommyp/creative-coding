@@ -1,0 +1,37 @@
+Body
+  Background color: #ffe8b4
+
+Drawing container
+  Width: 500
+  Height: 500
+
+Shapes
+  Number of shapes: 12
+  Plot radius: 150
+  Width: 50
+  Height: 50
+  Fill: #f9bc31
+  Stroke: none
+  Rotation: 0.025
+
+Grouped Shapes
+  Rotation: 0.005
+
+-----------
+Variation 2
+-----------
+
+Shapes
+  Width: 150
+  Height: 10
+  Rotation: 0.006125
+
+-----------
+Variation 3
+-----------
+
+Scaling rates
+  Growing: 0.0005
+  Shrinking: 0.0005
+
+
