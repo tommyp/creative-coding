@@ -16,6 +16,8 @@ const shapeMax = 500
 const shapeDiff = shapeMax - shapeMin
 const loopDuration = 4 * 60
 
+let t = 0
+
 // make shapes
 for (let i = 0; i < numberOfShapes; i++) {
   const x = 250
@@ -29,7 +31,6 @@ for (let i = 0; i < numberOfShapes; i++) {
 
 two.bind("update", function (frameCount) {
   const currentFrame = frameCount % loopDuration
-  const t = currentFrame / loopDuration
 
   shapes.forEach((shape, idx) => {
     const aStart = 0.01 * (numberOfShapes - idx)
@@ -44,6 +45,16 @@ two.bind("update", function (frameCount) {
     shape.translation.x = 750 * easeInOutCubic(u)
   })
 })
+
+document.addEventListener('scroll', (e) => {
+  const scrollY = window.pageYOffset
+  const scrollMax = 4000 - window.innerHeight
+  t = mapAndClamp(scrollY, 0, scrollMax, 0, 1)
+})
+
+// document.addEventListener('mousemove', (e) => {
+//   t = mapAndClamp(e.screenX, 0, window.innerWidth, 0, 1)
+// })
 
 two.play()
 
