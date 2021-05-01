@@ -36,8 +36,8 @@ two.bind("update", function (frameCount) {
   const t = currentFrame / loopDuration
 
   shapes.forEach((shape, idx) => {
-    const aStart = aDelay * (numberOfShapes - idx)
-    const aEnd = aDelay * idx
+    const aStart = aDelay * idx
+    const aEnd = aDelay * (numberOfShapes - idx)
     const u = mapAndClamp(t, aStart, 1 - aEnd, 0, 1)
     shape.rotation = easeInOutCubic(u) * halfRotation
   })
