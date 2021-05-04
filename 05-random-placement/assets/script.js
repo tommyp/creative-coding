@@ -20,9 +20,11 @@ for (let i = 0; i < numberOfShapes; i++) {
   const sx = size * i + 10
   const sy = 250
   const sr = 0
+  const ss = 1
   const ex = randomNumber(50, 450)
   const ey = randomNumber(50, 450)
   const er = randomNumber(-2 * fullRotation, 2 * fullRotation)
+  const es = randomNumber(1, 4)
 
   const shape = two.makeRectangle(sx, sy, size, size)
   shape.noStroke()
@@ -31,9 +33,11 @@ for (let i = 0; i < numberOfShapes; i++) {
     sx: sx,
     sy: sy,
     sr: sr,
+    ss: ss,
     ex: ex,
     ey: ey,
     er: er,
+    es: es,
   }
   shapes.push(shape)
 }
@@ -61,10 +65,12 @@ two.bind("update", function (frameCount) {
     y = mapAndClamp(cu, 0, 1, shape.data.sy, shape.data.ey)
     const r = mapAndClamp(cu, 0, 1, shape.data.sr, shape.data.er)
 
+    const s = mapAndClamp(cu, 0, 1, shape.data.ss, shape.data.es)
+
     shape.translation.x = x
     shape.translation.y = y
     shape.rotation = r
-
+    shape.scale = s
   })
 })
 
