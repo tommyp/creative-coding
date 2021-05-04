@@ -21,8 +21,10 @@ for (let i = 0; i < numberOfShapes; i++) {
   const sy = 250
   const sr = 0
   const ss = 1
-  const ex = randomNumber(50, 450)
-  const ey = randomNumber(50, 450)
+  const plotRadius = 200
+  const angle = fullRotation *  i / numberOfShapes
+  const ex = 250 + plotRadius * Math.cos(angle)
+  const ey = 250 + plotRadius * Math.sin(angle)
   const er = randomNumber(-2 * fullRotation, 2 * fullRotation)
   const es = randomNumber(1, 4)
 
@@ -70,7 +72,7 @@ two.bind("update", function (frameCount) {
     shape.translation.x = x
     shape.translation.y = y
     shape.rotation = r
-    shape.scale = s
+    // shape.scale = s
   })
 })
 
