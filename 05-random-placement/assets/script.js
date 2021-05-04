@@ -71,13 +71,33 @@ two.bind("update", function (frameCount) {
     y = mapAndClamp(cu, 0, 1, shape.data.sy, shape.data.ey)
     const r = mapAndClamp(cu, 0, 1, shape.data.sr, shape.data.er)
 
-    const s = mapAndClamp(cu, 0, 1, shape.data.ss, shape.data.es)
-
     shape.translation.x = x
     shape.translation.y = y
     shape.rotation = r
-    shape.scale = s
   })
+})
+
+const bgColors = [
+  "#45d3c5",
+  "#ffe8b4",
+  "#f9d2cd",
+  "#bcdffd",
+]
+
+const shapeColors = [
+  "#004F73",
+  "#f8bc30",
+  "#f45745",
+  "#5745d3",
+]
+
+let currentColor = 0
+
+document.addEventListener('click', (e) => {
+  currentColor += 1
+  currentColor = currentColor % bgColors.length
+  document.querySelector('body').style.backgroundColor = bgColors[currentColor]
+  shapes.forEach((shape) => shape.fill = shapeColors[currentColor])
 })
 
 two.play()
